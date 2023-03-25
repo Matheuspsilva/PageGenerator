@@ -76,6 +76,18 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                @if(Session::has('errors') and $errors->any())
+                <div class="alert alert-danger">
+                    <h3>Um erro aconteceu!</h3>
+                    {{-- Ajuste para mostrar todos os erros de uma vez --}}
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+
             @yield('content')
         </main>
     </div>
