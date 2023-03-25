@@ -35,7 +35,7 @@ class QrCodeController extends Controller
         $card->save();
 
 
-        return view('qrcode')->with('qrcode', $qrcode) ;
+        return view('qrcode')->with('qrcode', $qrcode)->with('card', $card);
 
     }
 
