@@ -7,7 +7,7 @@ use App\Models\Card;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class QrCodeController extends Controller
+class CardController extends Controller
 {
 
     private $card;

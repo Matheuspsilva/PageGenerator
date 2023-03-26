@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\CardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,9 @@ use App\Http\Controllers\QrCodeController;
 
 Auth::routes();
 
-Route::get('/generate', [QrCodeController::class, 'index']);
-Route::post('/qrcode', [QrCodeController::class, 'generate'])->name('qrcode');
-Route::get('page/{slug}', [QrCodeController::class, 'showPage']);
+Route::get('/generate', [CardController::class, 'index']);
+Route::post('/qrcode', [CardController::class, 'generate'])->name('qrcode');
+Route::get('page/{slug}', [CardController::class, 'showPage']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
