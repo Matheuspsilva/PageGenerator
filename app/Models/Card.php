@@ -9,5 +9,6 @@ class Card extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'linkedin', 'github', 'url'];
+    protected $fillable = ['name', 'linkedin', 'github', 'url', 'slug'];
+
 }

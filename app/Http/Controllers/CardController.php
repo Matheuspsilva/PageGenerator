@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CardPostRequest;
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CardController extends Controller
@@ -24,17 +25,18 @@ class CardController extends Controller
     public function generate(CardPostRequest $request){
 
         try {
+            $site = config('app.url') . "/page/";
+
             $card = $request->all();
-            $site = 'https://matheuspsilvadev.com/';
-            $card["url"] = $site . $card["name"];
+
+            $card = $this->card->create($card);
+            $card->slug = Str::slug($card->name);
+            $card->url = $site . $card->slug;
+            $card->save();
 
             $qrcode = new QrCode;
 
-
             $qrcode = QrCode::size(300)->generate($card['url']);
-
-            $card = $this->card->create($card);
-            $card->save();
 
 
             return view('qrcode')->with('qrcode', $qrcode)->with('card', $card);
