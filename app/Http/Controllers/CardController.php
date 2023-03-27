@@ -51,8 +51,10 @@ class CardController extends Controller
     }
 
     public function showPage($slug = 'home'){
-        $card = card::whereName($slug)->first();
+        $card = card::whereSlug($slug)->first();
+
         if($card != null){
+
             return view('page')->with('card', $card);
         }
 

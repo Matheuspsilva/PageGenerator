@@ -18,7 +18,7 @@ class CardSeeder extends Seeder
             'name' => 'José',
             'linkedin' => 'https://www.linkedin.com/in/jose/',
             'github' => 'https://github.com/jose',
-            'url' => "https://matheuspsilvadev.com/jose"
+            'url' => "https://localhost.com/page/jose"
         ]);
     }
 }

@@ -26,8 +26,8 @@ class CardPostRequest extends FormRequest
         return [
 
             'name' => 'required|unique:cards|max:255',
-            'linkedin' => 'required|unique:cards|max:255',
-            'github' => 'required|unique:cards|max:255',
+            'linkedin' => ['required','unique:cards','max:255', 'regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
+            'github' => ['required','unique:cards','max:255', 'regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i']
 
         ];
     }
