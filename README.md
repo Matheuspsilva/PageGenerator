@@ -1,5 +1,7 @@
 # Page Generator
 Application to generate personal page with qrcode link. Buzzvel Skill Test
+
+Link da aplicação: https://limitless-sands-09069.herokuapp.com/
 ## Story
 João is tired of using business cards for his business. He liked having a picture on
 his phone so that people scanning it could see all their data on one page.
