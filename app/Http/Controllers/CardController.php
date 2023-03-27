@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CardPostRequest;
 use App\Models\Card;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -40,11 +43,10 @@ class CardController extends Controller
 
 
             return view('qrcode')->with('qrcode', $qrcode)->with('card', $card);
-        } catch (\Exception $e) {
-            dd($e);
+        } catch (Exception $e) {
+            DB::rollback();
+            return Redirect::back()->withErrors(['msg' => 'Aconteu um erro inesperado! Contate o administrador do site']);
         }
-
-
 
     }
 
