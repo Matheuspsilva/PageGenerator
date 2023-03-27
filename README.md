@@ -9,6 +9,15 @@ Your goal is to create a tool that helps João solve his problem in a simple way
 - Pull Laravel/php project from git provider.
 - Rename `.env.example` file to `.env`inside your project root and fill the database information.
   (windows wont let you do it, so you have to open your console cd your project root directory and run `mv .env.example .env` )
+- Configure database connection variables	
+		```
+        DB_CONNECTION=mysql
+        DB_HOST=mysql
+        DB_PORT=3306
+        DB_DATABASE=buzzvel-skills-tests
+        DB_USERNAME=sail
+        DB_PASSWORD=password
+		```  
 - Open the console and cd your project root directory
 - Run `composer install` 
 - Run `./vendor/bin/sail up -d`
