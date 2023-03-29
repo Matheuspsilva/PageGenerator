@@ -37,10 +37,8 @@ class CardController extends Controller
             $card->url = $site . $card->slug;
             $card->save();
 
-            $qrcode = new QrCode;
 
-            $qrcode = QrCode::size(300)->generate($card['url']);
-
+            $qrcode =  base64_encode(QrCode::format('png')->size(300)->generate($card['url']));
 
             return view('qrcode')->with('qrcode', $qrcode)->with('card', $card);
         } catch (Exception $e) {
